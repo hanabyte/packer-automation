@@ -1,4 +1,21 @@
-  
+packer {
+  required_plugins {
+    amazon = {
+      version = ">= 1.2.8"
+      source  = "github.com/hashicorp/amazon"
+    }
+  }
+}
+
+packer {
+  required_plugins {
+    vagrant = {
+      version = "~> 1"
+      source = "github.com/hashicorp/vagrant"
+    }
+  }
+}  
+
 source "amazon-ebs" "ubuntu" {
   ami_name      = "packer-ubuntu-aws-{{timestamp}}"
   instance_type = "t2.micro"
